@@ -1,0 +1,7 @@
+<h1>New Movie</h1>
+
+<%= simple_form_for([@bookmark, @list]) do |f| %>
+    <%= f.input :name %>
+    <%= f.submit "Add a movie name" %>
+<% end %>
+
