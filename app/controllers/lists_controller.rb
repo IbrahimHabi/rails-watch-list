@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ListsController < ApplicationController
-  before_action :set_list, only: [ :show, :edit ]
+  before_action :set_list, only: %i[show edit]
 
   def index
     @lists = List.all
@@ -9,11 +11,9 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @list = List.create(list_params)
@@ -22,7 +22,6 @@ class ListsController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   # def create
