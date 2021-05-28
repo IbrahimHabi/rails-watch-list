@@ -1,13 +1,24 @@
-<div class="container bg-light">
   <!-- Banner Style -->
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWVzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);">
   </div>
 
-  <% @lists.each do |list| %>
-       <h3><%= list.name %></h3>
-        <%= link_to 'Show', restaurant %>
-        <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
-        <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-    <% end %>
-</div>
+<!-- Card Design -->
+<% @lists.each do |list| %>
+  <div class="card" style="width: 18rem;">
+    <%= list.poster_url %>
+    <div class="card-body">
+      <h5 class="card-title"><%= list.name %></h5>
+         <p><%= list.overview %></p>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= list.rating %></li>
+    </ul>
+    <div class="card-body">
+      <p class="card-link">More details on this movie <%= link_to 'More', list_path %></p>
+      <p class="card-link">Delete this movie from your list?
+        <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </p>
+    </div>
+  </div>
+<% end %>
